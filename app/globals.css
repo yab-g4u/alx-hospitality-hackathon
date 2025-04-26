@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 210 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+
+    --primary: 150 40% 18%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 40 20% 86%;
+    --secondary-foreground: 210 20% 15%;
+
+    --muted: 40 10% 92%;
+    --muted-foreground: 210 20% 40%;
+
+    --accent: 20 40% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 210 20% 85%;
+    --input: 210 20% 85%;
+    --ring: 45 54% 52%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 210 20% 15%;
+    --foreground: 40 30% 98%;
+
+    --card: 210 20% 18%;
+    --card-foreground: 40 30% 98%;
+
+    --popover: 210 20% 18%;
+    --popover-foreground: 40 30% 98%;
+
+    --primary: 150 40% 18%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 40 20% 86%;
+    --secondary-foreground: 210 20% 15%;
+
+    --muted: 210 20% 25%;
+    --muted-foreground: 40 30% 80%;
+
+    --accent: 20 40% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 210 20% 30%;
+    --input: 210 20% 30%;
+    --ring: 45 54% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-kuriftu-sand/20 text-kuriftu-charcoal;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-kuriftu-charcoal;
+  }
+  p,
+  span,
+  div,
+  button,
+  a {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .tier-card {
+    @apply relative overflow-hidden rounded-xl border border-kuriftu-gold/30 shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+
+  .stamp {
+    @apply relative flex items-center justify-center rounded-full bg-kuriftu-gold p-4 shadow-md transition-all duration-300;
+  }
+
+  .stamp-collected {
+    @apply animate-stamp-bounce;
+  }
+
+  .passport-page {
+    @apply relative overflow-hidden rounded-xl bg-kuriftu-sand p-6 shadow-lg transition-all duration-300;
+  }
+
+  .qr-container {
+    @apply relative flex items-center justify-center rounded-xl border-2 border-kuriftu-gold bg-white p-4 shadow-md;
+  }
+
+  .qr-active {
+    @apply animate-glow-pulse;
+  }
+
+  .progress-ring {
+    @apply transition-all duration-300;
+  }
+
+  .confetti {
+    @apply absolute h-2 w-2 rounded-full animate-confetti;
+  }
+
+  .card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+
+  .card-container {
+    @apply relative overflow-hidden rounded-xl border border-kuriftu-sand/30 shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .card-header {
+    @apply flex items-center justify-between p-4 bg-kuriftu-green text-white;
+  }
+
+  .card-content {
+    @apply p-4 bg-white;
+  }
+
+  .btn-primary {
+    @apply bg-kuriftu-green text-white hover:bg-kuriftu-green-light;
+  }
+
+  .btn-secondary {
+    @apply bg-kuriftu-gold text-kuriftu-charcoal hover:bg-kuriftu-gold/90;
+  }
+
+  .btn-accent {
+    @apply bg-kuriftu-terracotta text-white hover:bg-kuriftu-terracotta/90;
+  }
+
+  .btn-outline {
+    @apply border border-kuriftu-green text-kuriftu-green hover:bg-kuriftu-green/10;
+  }
+
+  .close-btn {
+    @apply absolute top-2 right-2 p-1 rounded-full bg-white/80 text-kuriftu-charcoal hover:bg-white;
+  }
+
+  /* Responsive fixes */
+  .responsive-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-card {
+    @apply w-full max-w-full overflow-visible;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer {
+    @apply bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] animate-shimmer;
+  }
+
+  /* Enhanced buttons */
+  .kuriftu-btn {
+    @apply relative overflow-hidden transition-all duration-300 rounded-md font-medium;
+  }
+
+  .kuriftu-btn-primary {
+    @apply kuriftu-btn bg-kuriftu-green text-white hover:bg-kuriftu-green-light active:scale-95;
+  }
+
+  .kuriftu-btn-gold {
+    @apply kuriftu-btn bg-kuriftu-gold text-kuriftu-charcoal hover:bg-kuriftu-gold/90 active:scale-95;
+  }
+
+  .kuriftu-btn-terracotta {
+    @apply kuriftu-btn bg-kuriftu-terracotta text-white hover:bg-terracotta-light active:scale-95;
+  }
+
+  .kuriftu-btn-outline {
+    @apply kuriftu-btn border-2 border-kuriftu-green text-kuriftu-green hover:bg-kuriftu-green hover:text-white active:scale-95;
+  }
+
+  .kuriftu-btn-outline-gold {
+    @apply kuriftu-btn border-2 border-kuriftu-gold text-kuriftu-gold hover:bg-kuriftu-gold hover:text-kuriftu-charcoal active:scale-95;
+  }
+
+  /* Enhanced cards */
+  .kuriftu-card {
+    @apply bg-white rounded-xl border border-kuriftu-sand/30 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .kuriftu-card-premium {
+    @apply kuriftu-card border-kuriftu-gold/50;
+  }
+
+  /* Location-specific themes */
+  .location-bishoftu {
+    @apply bg-gradient-to-br from-kuriftu-green/10 to-kuriftu-sand/30;
+  }
+
+  .location-bahirdar {
+    @apply bg-gradient-to-br from-blue-500/10 to-kuriftu-sand/30;
+  }
+
+  .location-entoto {
+    @apply bg-gradient-to-br from-emerald-500/10 to-kuriftu-sand/30;
+  }
+
+  .location-adama {
+    @apply bg-gradient-to-br from-kuriftu-terracotta/10 to-kuriftu-sand/30;
+  }
+}
